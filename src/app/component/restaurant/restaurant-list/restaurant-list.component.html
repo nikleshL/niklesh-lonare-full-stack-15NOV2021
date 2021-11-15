@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="card-header pb-0">
+        <h5 class="card-title mb-0">Restaurant List</h5>
+    </div>
+    <div class="card-body">
+        <app-loader *ngIf="showLoader"></app-loader>
+        <ng-container *ngIf="restaurantList && restaurantList.length > 0">
+            <table class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let restaurant of restaurantList | filter: searchByKeyword: type">
+                        <td><img src="https://i.pinimg.com/favicons/9fbe4d1462643daaa0da9574bf903af71588725724dacd8d4a7bef1b.png?f117c9b51a3dd86bd00e28b7777a7c42" width="50" height="50" class="rounded-circle my-n1" alt="Avatar"></td>
+                        <td>
+                            <b>{{restaurant.RestaurantName}}</b>
+                            <p>{{restaurant.RestaurantTiming}}</p>
+                        </td>
+                        <td><button type="button" class="btn btn-primary btn-sm" (click)="openModal(restaurant)">Favourite</button></td>
+                    </tr>
+                </tbody>
+                <!--<app-pagination [collectionLength]="restaurantList.length" [pageSize]="pageSize" [page]="page"></app-pagination>-->
+            </table>
+        </ng-container>
+    </div>
+</div>
+<app-add-to-favourite *ngIf="isOpenModal" (upadateFavouriteList)="upadateFavouriteList()" [modalInfo]="modalInfo"></app-add-to-favourite>

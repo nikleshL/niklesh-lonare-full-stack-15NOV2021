@@ -1,0 +1,5 @@
+{
+    "isProductionEnvironment": false,
+    "isDevelopEnvironment": true,
+    "mongoDBUrl": "mongodb://localhost:27017/restaurantDb"
+}

@@ -1,0 +1,22 @@
+<div class="modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Restaurant To Favourite List</h5>
+        </div>
+        <div class="modal-body">
+            <div class="input-group">
+                <input type="text" placeholder="Category" class="form-control" [(ngModel)]="newCategory" />
+            </div>
+            <button type="button" class="btn btn-secondary" (click)="createNewCategory()">Create New Category</button>
+            <div class="category-list" *ngIf="userData.favouriteList.length > 0">
+                <div class="divider"></div>
+                <p>Select from below category</p>
+                <div class="list-group" *ngFor="let list of userData.favouriteList">
+                    <button type="button" class="list-group-item list-group-item-action" (click)="addRestToCategory(list)">{{list.favouriteCategory}}</button>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

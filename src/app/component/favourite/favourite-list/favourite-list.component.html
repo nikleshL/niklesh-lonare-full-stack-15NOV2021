@@ -1,0 +1,21 @@
+<ng-container *ngIf = "favouriteList.length > 0; else nofavourite">
+    <div class="favourite">
+        <ul class="category-list" *ngFor="let fav of favouriteList">
+            <li class="category">
+                <span class="category-name">{{fav.favouriteCategory}}</span>
+                <ng-container *ngIf="fav.restaurant && fav.restaurant.length > 0">
+                    <ul class="restaurant-list" *ngFor="let rest of fav.restaurant">
+                        <li class="restaurant">
+                            <b>{{rest.RestaurantName}}</b>
+                        </li>
+                    </ul>
+                </ng-container>
+            </li>
+        </ul>
+    </div>
+</ng-container>
+
+<ng-template #nofavourite>
+    <p>Looks like you dont have favourite category and restaurant.</p>
+    <p>You can add your favourite restaurant from list</p>
+</ng-template>

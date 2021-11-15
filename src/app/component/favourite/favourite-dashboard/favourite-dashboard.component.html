@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">My Favourites</h5>
+    </div>
+    <div class="card-body">
+        <div class="row g-0">
+            <app-login *ngIf ="!isLoggedIn"></app-login>
+        </div>
+        <div class="my-favourite-list" *ngIf ="isLoggedIn">
+            <app-user-info [userInfo]="userData.email"></app-user-info>
+
+            <app-favourite-list [favouriteList]="userData.favouriteList"></app-favourite-list>
+    
+            <!--<table class="table table-sm mt-2 mb-4">
+                <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <td>Angelica Ramos</td>
+                    </tr>
+                    <tr>
+                        <th>Company</th>
+                        <td>The Wiz</td>
+                    </tr>
+                </tbody>
+            </table>-->
+        </div>
+    </div>
+</div>
